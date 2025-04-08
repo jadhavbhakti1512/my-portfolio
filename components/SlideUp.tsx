@@ -1,14 +1,14 @@
-"use client" // this is a client component
+"use client" // This is a client component
 
 import React, { useEffect, useRef, ReactNode } from "react"
+
 interface Props {
   offset?: string
   children?: ReactNode
-  // any props that come into the component
 }
 
 export default function SlideUp({ children, offset = "0px" }: Props) {
-  const ref = useRef(null)
+  const ref = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -23,10 +23,17 @@ export default function SlideUp({ children, offset = "0px" }: Props) {
       { rootMargin: offset }
     )
 
-    if (ref.current) {
-      observer.observe(ref.current)
+    const element = ref.current
+    if (element) {
+      observer.observe(element)
     }
-  }, [ref])
+
+    return () => {
+      if (element) {
+        observer.unobserve(element)
+      }
+    }
+  }, [offset]) // Added `offset` as a dependency
 
   return (
     <div ref={ref} className="relative opacity-0">
