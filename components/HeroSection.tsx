@@ -28,7 +28,7 @@ const HeroSection = () => {
             >
                 👋🏻
             </motion.span>
-            <br></br>I'm Bhakti!
+            <br></br>I&apos;m Bhakti!
         </h1>
         <p className="text-lg mt-4 mb-6 md:text-2xl">
             I&#39;m a{" "}
