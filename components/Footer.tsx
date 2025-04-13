@@ -21,7 +21,7 @@ const Footer = () => {
             />
           </a>
           <a
-            href="https://twitter.com/hqasmei"
+            href="https://www.linkedin.com/in/bhakti-jadhav-88167920b/"
             rel="noreferrer"
             target="_blank"
           >
