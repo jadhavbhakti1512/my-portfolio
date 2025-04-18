@@ -6,6 +6,13 @@ import { BsGithub, BsArrowUpRightSquare } from "react-icons/bs"
 
 const projects = [
   {
+    name: "Professional Data Engineer Certification",
+    description:
+      "A Professional Data Engineer makes data usable and valuable for others by collecting, transforming, and publishing data. This individual evaluates and selects products and services to meet business and regulatory requirements. A Professional Data Engineer creates and manages robust data processing systems. This includes the ability to design, build, deploy, monitor, maintain, and secure data processing workloads.",
+    image: "/GCP3.png",
+    link: "https://www.credly.com/badges/0640bc0e-58fe-4059-8b3d-a96c5343300e/public_url",
+  },
+  {
     name: "Azure DP 203",
     description: "Microsoft Certified: Azure Data Engineer Associate",
     image: "/AZ.png",
