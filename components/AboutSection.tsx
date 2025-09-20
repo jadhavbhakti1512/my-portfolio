@@ -12,7 +12,10 @@ const skills = [
   { skill: "JavaScript" },
   { skill: "WordPress" },
   { skill: "GitHub" },
-  { skill: ".Net" },
+  { skill: "Node.js" },
+  { skill: "PHP" },
+  { skill: "Azure" },
+  { skill: "Terraform" },
 ]
 
 const AboutSection = () => {
