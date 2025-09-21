@@ -38,7 +38,7 @@ const HeroSection = () => {
             based in Pune, building scalable solutions that optimize performance and simplify workflows.
           </p>
           <Link
-            to="projects"
+            to="skills"
             className="text-neutral-100 font-semibold px-6 py-3 bg-teal-600 rounded shadow hover:bg-teal-700"
             activeClass="active"
             spy={true}
@@ -46,7 +46,7 @@ const HeroSection = () => {
             offset={-100}
             duration={500}
           >
-            Certifications
+            View My Skills
           </Link>
         </div>
       </div>
