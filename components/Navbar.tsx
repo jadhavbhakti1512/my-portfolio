@@ -13,8 +13,10 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   { label: "Home", page: "home" },
-  { label: "About", page: "about" },
-  { label: "Certifications", page: "projects" },
+  { label: "About Me", page: "about" },
+  { label: "Projects", page: "projects" },
+  { label: "Certifications", page: "certifications" },
+
 ]
 
 export default function Navbar() {

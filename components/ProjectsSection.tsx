@@ -1,86 +1,79 @@
 "use client";
 
-import React from "react"
-import Image from "next/image"
-import Link from "next/link"
-import SlideUp from "./SlideUp"
-import { BsGithub, BsArrowUpRightSquare } from "react-icons/bs"
+import React from "react";
 
-const projects = [
+const certifications = [
   {
-    name: "Professional Data Engineer Certification",
+    title: "Professional Data Engineer Certification",
     description:
       "A Professional Data Engineer makes data usable by designing, building, and managing secure, reliable data systems that collect, transform, and publish data to meet business and compliance needs.",
-    image: "/GCP3.png",
     link: "https://www.credly.com/badges/0640bc0e-58fe-4059-8b3d-a96c5343300e/public_url",
+    image: "/GCP3.png", // place images in public/
   },
   {
-    name: "Azure DP 203",
+    title: "Azure DP 203",
     description: "Microsoft Certified: Azure Data Engineer Associate",
-    image: "/AZ.png",
     link: "https://learn.microsoft.com/en-gb/users/bhaktijadhav-1111/credentials/67f8b8dd261c1fc2",
+    image: "/AZ.png",
   },
   {
-    name: "Associate Cloud Engineer Certification",
+    title: "Associate Cloud Engineer Certification",
     description:
       "Associate Cloud Engineers deploy, monitor, and manage applications on Google Cloud. They use the Cloud Console and CLI to maintain deployed solutions using Google-managed or self-managed services.",
-    image: "/GCP1.png",
     link: "https://www.credly.com/badges/f90c03d0-35db-47c1-b4b7-fe104a4503b3/public_url",
+    image: "/GCP1.png",
   },
   {
-    name: "Cloud Digital Leader Certification",
+    title: "Cloud Digital Leader Certification",
     description:
       "A Cloud Digital Leader understands Google Cloud's core products, their benefits, and common business use cases. This certification validates cloud computing basics and how Google Cloud helps achieve organizational goals.",
-    image: "/GCP2.png",
     link: "https://www.credly.com/badges/93b51362-125e-421f-91a5-883eae2b90d9/public_url",
+    image: "/GCP2.png",
   },
-]
+];
 
-const ProjectsSection = () => {
+const Certifications = () => {
   return (
-    <section id="projects">
+    <section id="certifications" className="py-12 px-4 md:px-12">
       <h1 className="my-10 text-center font-bold text-4xl">
         Certifications
         <hr className="w-6 h-1 mx-auto my-4 bg-teal-500 border-0 rounded"></hr>
       </h1>
-
-      <div className="flex flex-col space-y-28">
-        {projects.map((project, idx) => (
-          <div key={idx}>
-            <SlideUp offset="-300px 0px -300px 0px">
-              <div className="flex flex-col animate-slideUpCubiBezier animation-delay-2 md:flex-row md:space-x-12">
-                <div className="md:w-1/2">
-                  <Link href={project.link} target="_blank">
-                    <Image
-                      src={project.image}
-                      alt={project.name}
-                      width={1000}
-                      height={1000}
-                      className="rounded-xl shadow-xl hover:opacity-70"
-                    />
-                  </Link>
-                </div>
-                <div className="mt-8 md:w-1/2">
-                  <h1 className="text-4xl font-bold mb-6">{project.name}</h1>
-                  <p className="text-xl leading-7 mb-4 text-neutral-600 dark:text-neutral-400">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-row align-bottom space-x-4">
-                    <Link href={project.link} target="_blank">
-                      <BsArrowUpRightSquare
-                        size={30}
-                        className="hover:-translate-y-1 transition-transform cursor-pointer"
-                      />
-                    </Link>
-                  </div>
-                </div>
+      <div className="grid md:grid-cols-2 gap-6">
+        {certifications.map((cert, index) => (
+          <div
+            key={index}
+            className="bg-white rounded-lg shadow overflow-hidden flex flex-col"
+          >
+            {/* Certification Image */}
+            {cert.image && (
+              <img
+                src={cert.image}
+                alt={cert.title}
+                className="w-full h-40 object-cover"
+              />
+            )}
+            {/* Certification Content */}
+            <div className="p-6 flex flex-col justify-between flex-1">
+              <div>
+                <h3 className="text-lg font-semibold mb-3">{cert.title}</h3>
+                <p className="text-gray-700 text-sm mb-4">{cert.description}</p>
               </div>
-            </SlideUp>
+              <div className="flex gap-4 mt-4">
+                <a
+                  href={cert.link}
+                  target="_blank"
+                  className="px-4 py-2 text-sm rounded bg-green-600 text-white hover:bg-green-700 transition"
+                >
+                  View Certificate
+                </a>
+              </div>
+            </div>
           </div>
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ProjectsSection
+export default Certifications;
