@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 const certifications = [
   {
@@ -8,7 +9,7 @@ const certifications = [
     description:
       "A Professional Data Engineer makes data usable by designing, building, and managing secure, reliable data systems that collect, transform, and publish data to meet business and compliance needs.",
     link: "https://www.credly.com/badges/0640bc0e-58fe-4059-8b3d-a96c5343300e/public_url",
-    image: "/GCP3.png", // place images in public/
+    image: "/GCP3.png",
   },
   {
     title: "Azure DP 203",
@@ -37,7 +38,7 @@ const Certifications = () => {
     <section id="certifications" className="py-12 px-4 md:px-12">
       <h1 className="my-10 text-center font-bold text-4xl">
         Certifications
-        <hr className="w-6 h-1 mx-auto my-4 bg-teal-500 border-0 rounded"></hr>
+        <hr className="w-6 h-1 mx-auto my-4 bg-teal-500 border-0 rounded" />
       </h1>
       <div className="grid md:grid-cols-2 gap-6">
         {certifications.map((cert, index) => (
@@ -47,10 +48,12 @@ const Certifications = () => {
           >
             {/* Certification Image */}
             {cert.image && (
-              <img
+              <Image
                 src={cert.image}
                 alt={cert.title}
-                className="w-full h-40 object-cover"
+                width={400}
+                height={160}
+                className="object-cover w-full h-40"
               />
             )}
             {/* Certification Content */}
@@ -63,6 +66,7 @@ const Certifications = () => {
                 <a
                   href={cert.link}
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="px-4 py-2 text-sm rounded bg-green-600 text-white hover:bg-green-700 transition"
                 >
                   View Certificate
