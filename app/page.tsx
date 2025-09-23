@@ -4,6 +4,7 @@ import ProjectsSection from "@/components/ProjectsSection"
 import FAQChatbot from "@/components/FAQChatbot"
 import Projects from "@/components/Projects"
 import SkillsSection from "@/components/SkillsSection";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <SkillsSection />
       <Projects />
       <ProjectsSection />
+      <Contact />
       <FAQChatbot /> 
        
     </main>
