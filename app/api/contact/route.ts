@@ -1,10 +1,15 @@
-export const runtime = "nodejs"; // ⚡ important for nodemailer
+export const runtime = "nodejs";
+
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
     const { name, email, message } = await req.json();
+
+    if (!name || !email || !message) {
+      return NextResponse.json({ success: false, error: "Missing fields" }, { status: 400 });
+    }
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -15,17 +20,19 @@ export async function POST(req: Request) {
     });
 
     const mailOptions = {
-      from: email,
+      from: `"${name}" <${email}>`,
       to: process.env.EMAIL_TO,
       subject: `New message from ${name} via Portfolio`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+      text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,
     };
 
-    await transporter.sendMail(mailOptions);
+    const info = await transporter.sendMail(mailOptions);
 
-    return NextResponse.json({ success: true }, { status: 200 });
+    console.log("Email sent:", info.messageId);
+
+    return NextResponse.json({ success: true });
   } catch (error) {
     console.error("Email error:", error);
-    return NextResponse.json({ success: false, error: "Failed to send email" }, { status: 500 });
+    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }
 }
