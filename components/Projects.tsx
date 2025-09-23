@@ -10,15 +10,15 @@ const projects = [
   {
     name: "Rotten Fruit Detector",
     description:
-      "An AI/ML project that detects whether fruits are fresh or rotten using CNN models. Frontend built with React, backend using FastAPI.",
-    image: "/projects/fruit.png",
+      "An AI/ML project that classifies fresh vs rotten fruits using CNN and ResNet models with ~92% accuracy. Built end-to-end: data preprocessing, model training, FastAPI backend, and React frontend. Deployed with Docker on cloud for real-time predictions.",
+    image: "/Gemini_Generated_Image_vy1ryxvy1ryxvy1r.png",
     demoLink: "https://your-demo-link.com",
-    githubLink: "https://github.com/yourusername/rotten-fruit-detector",
+    githubLink: "https://github.com/jadhavbhakti1512/rotten-fruit-classifier",
   },
   {
     name: "E-Commerce Store",
     description:
-      "A full-stack e-commerce platform with product listings, shopping cart, and checkout. Built using Next.js, WooCommerce, and MySQL.",
+      "A full-stack e-commerce platform with product listings, shopping cart, and checkout. Developed using Next.js, WooCommerce, and MySQL with secure payments and responsive design.",
     image: "/projects/store.png",
     demoLink: "https://your-demo-link.com",
     githubLink: "https://github.com/yourusername/ecommerce-store",
