@@ -1,4 +1,4 @@
-export const runtime = "nodejs"; // ⚡ important for nodemailer
+export const runtime = "nodejs"; // important for nodemailer
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
@@ -7,12 +7,17 @@ export async function POST(req: Request) {
     const { name, email, message } = await req.json();
 
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
     });
+
+    // Optional verification
+    await transporter.verify();
 
     const mailOptions = {
       from: email,
@@ -24,10 +29,8 @@ export async function POST(req: Request) {
     await transporter.sendMail(mailOptions);
 
     return NextResponse.json({ success: true }, { status: 200 });
-  } catch (error: unknown) {
+  } catch (error: any) {
     console.error("Email error:", error);
-    const errorMessage =
-      error instanceof Error ? error.message : "Unknown error occurred";
-    return NextResponse.json({ success: false, error: errorMessage }, { status: 500 });
+    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }
 }
