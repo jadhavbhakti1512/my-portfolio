@@ -46,7 +46,7 @@ const HeroSection = () => {
             offset={-100}
             duration={500}
           >
-            View My Skills
+            Explore My Work
           </Link>
         </div>
       </div>

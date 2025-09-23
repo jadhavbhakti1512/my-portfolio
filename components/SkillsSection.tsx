@@ -18,7 +18,6 @@ import {
   SiNumpy,
 } from "react-icons/si";
 
-// Dynamically import motion from framer-motion to prevent SSR issues
 const MotionDiv = dynamic(
   () => import("framer-motion").then((mod) => mod.motion.div),
   { ssr: false }
@@ -48,13 +47,19 @@ const SkillsSection = () => {
         <hr className="w-6 h-1 mx-auto my-4 bg-teal-500 border-0 rounded" />
       </h1>
 
-      {/* Circular Skill Cloud */}
       <div className="relative w-full h-96 flex items-center justify-center">
         {skills.map((skill, index) => {
           const angle = (index / skills.length) * 2 * Math.PI;
-          const radius = 140; // Circle radius
+          const radius = 140;
           const x = radius * Math.cos(angle);
           const y = radius * Math.sin(angle);
+
+          // Determine tooltip position
+          let tooltipClass = "bottom-full mb-2"; // default above
+          if (y > 0) tooltipClass = "top-full mt-2"; // below for bottom-half
+          if (Math.abs(x) > Math.abs(y)) {
+            tooltipClass = x > 0 ? "left-full ml-2" : "right-full mr-2"; // side for left/right
+          }
 
           return (
             <MotionDiv
@@ -64,9 +69,15 @@ const SkillsSection = () => {
               animate={{ x, y, scale: 1 }}
               transition={{ type: "spring", stiffness: 300, damping: 20, delay: index * 0.1 }}
               whileHover={{ scale: 1.3 }}
-              title={skill.name}
             >
-              {skill.icon}
+              <div className="relative group flex flex-col items-center">
+                {skill.icon}
+                <span
+                  className={`absolute ${tooltipClass} px-3 py-1 bg-gray-800 text-white text-sm md:text-base font-semibold rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-50`}
+                >
+                  {skill.name}
+                </span>
+              </div>
             </MotionDiv>
           );
         })}
