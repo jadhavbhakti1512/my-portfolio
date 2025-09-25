@@ -1,6 +1,6 @@
 import AboutSection from "@/components/AboutSection"
 import HeroSection from "@/components/HeroSection"
-import ProjectsSection from "@/components/ProjectsSection"  
+import ProjectsSection from "@/components/Certifications"  
 import FAQChatbot from "@/components/FAQChatbot"
 import Projects from "@/components/Projects"
 import SkillsSection from "@/components/SkillsSection";
