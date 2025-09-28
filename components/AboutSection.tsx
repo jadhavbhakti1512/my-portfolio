@@ -23,15 +23,15 @@ const AboutSection = () => {
               <span className="font-bold"> driven</span> software engineer
               based in Pune.
             </p>
-            <br />
+           
             <p>
               I graduated with a B.Tech in Computer Science from RCPIT, Shirpur, in 2023 and have been working in the field ever since.
             </p>
-            <br />
+            
             <p>
               I have a wide range of hobbies and passions that keep me engaged, from exploring new technologies and automating workflows to reading, traveling, and continuous learning.
             </p>
-            <br />
+            
             <p>
               I believe that you should{" "}
               <span className="font-bold text-teal-500">
@@ -40,8 +40,17 @@ const AboutSection = () => {
               and that&#39;s what I strive to do. I have a passion for
               technology and a desire to always push the limits of what is
               possible. I am excited to see where my career takes me and am
-              always open to new opportunities. 🙂
+              always open to new opportunities. 
             </p>
+             <br />
+             <p>
+  Please explore my{" "}
+  <a href="#projects" className="font-bold text-teal-500 hover:underline">
+    Projects
+  </a>{" "}
+  section to see my work in action! 🙂
+</p>
+
           </div>
 
           <div className="text-center md:w-1/2 md:text-left">
