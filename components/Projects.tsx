@@ -16,12 +16,12 @@ const projects = [
     githubLink: "https://github.com/jadhavbhakti1512/rotten-fruit-classifier",
   },
   {
-    name: "E-Commerce Store",
+    name: "Systel Project",
     description:
-      "A full-stack e-commerce platform with product listings, shopping cart, and checkout. Developed using Next.js, WooCommerce, and MySQL with secure payments and responsive design.",
-    image: "/projects/store.png",
-    demoLink: "https://your-demo-link.com",
-    githubLink: "https://github.com/yourusername/ecommerce-store",
+      "A modern web application developed with Next.js and Tailwind CSS, featuring responsive design, dynamic routing, and optimized performance. Deployed on Vercel for live usage and testing.",
+    image: "/systel.png", // add the screenshot of your project in public/projects folder
+    demoLink: "https://systel.vercel.app/",
+    githubLink: "https://github.com/yourusername/systel-project", // replace with actual GitHub repo
   },
 ];
 
@@ -59,7 +59,6 @@ const ProjectsSection = () => {
                     {project.description}
                   </p>
                   <div className="flex flex-row align-bottom space-x-6">
-                    {/* Live Demo Link */}
                     <Link
                       href={project.demoLink}
                       target="_blank"
@@ -70,7 +69,6 @@ const ProjectsSection = () => {
                         className="hover:-translate-y-1 transition-transform cursor-pointer"
                       />
                     </Link>
-                    {/* GitHub Link */}
                     <Link
                       href={project.githubLink}
                       target="_blank"

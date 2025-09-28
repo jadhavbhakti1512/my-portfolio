@@ -40,7 +40,7 @@ const Certifications = () => {
         Certifications
         <hr className="w-6 h-1 mx-auto my-4 bg-teal-500 border-0 rounded" />
       </h1>
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-4 gap-4">
         {certifications.map((cert, index) => (
           <div
             key={index}
@@ -53,21 +53,21 @@ const Certifications = () => {
                 alt={cert.title}
                 width={400}
                 height={160}
-                className="object-cover w-full h-40"
+                className="object-cover w-70 h-40"
               />
             )}
             {/* Certification Content */}
             <div className="p-6 flex flex-col justify-between flex-1">
               <div>
-                <h3 className="text-lg font-semibold mb-3">{cert.title}</h3>
-                <p className="text-gray-700 text-sm mb-4">{cert.description}</p>
+                <h3 className="text-black text-sm mb-0 text-lg font-semibold mb-3">{cert.title}</h3>
+                
               </div>
               <div className="flex gap-4 mt-4">
                 <a
                   href={cert.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-4 py-2 text-sm rounded bg-green-600 text-white hover:bg-green-700 transition"
+                  className="px-2 py-1 text-sm rounded bg-teal-600 text-white hover:bg-teal-700 transition"
                 >
                   View Certificate
                 </a>
