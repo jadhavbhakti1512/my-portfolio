@@ -19,9 +19,17 @@ const projects = [
     name: "Systel Project",
     description:
       "A modern web application developed with Next.js and Tailwind CSS, featuring responsive design, dynamic routing, and optimized performance. Deployed on Vercel for live usage and testing.",
-    image: "/systel.png", // add the screenshot of your project in public/projects folder
+    image: "/systel.png",
     demoLink: "https://systel.vercel.app/",
-    githubLink: "https://github.com/yourusername/systel-project", // replace with actual GitHub repo
+    githubLink: "https://github.com/yourusername/systel-project",
+  },
+  {
+    name: "Portfolio Website",
+    description:
+      "My personal portfolio showcasing projects, skills, and experience. Built with Next.js, Tailwind CSS, and React, featuring smooth scrolling, responsive design, and interactive elements. Deployed on Vercel for live access.",
+    image: "/portfolio.png", // add screenshot of your portfolio in public folder
+    demoLink: "https://bhaktij.vercel.app/",
+    githubLink: "https://github.com/jadhavbhakti1512/portfolio",
   },
 ];
 
