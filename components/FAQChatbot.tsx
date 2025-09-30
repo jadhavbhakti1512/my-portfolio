@@ -14,10 +14,10 @@ type Message = {
 
 const SAMPLE_FAQS = [
   { question: "What is your name?", answer: "Hi — I'm Bhakti's portfolio bot. I can answer simple FAQs about this site." },
-  { question: "What technologies do you use?", answer: "This portfolio uses Next.js, React, TailwindCSS and Vercel for deployment." },
-  { question: "How can I contact you?", answer: "You can contact me via the contact form on this site or email jadhavbhakti1512@gmail.com." },
+  { question: "What technologies do you use?", answer: "Next.js, React, TailwindCSS, Vercel, WordPress, WooCommerce, Python, SQL, GCP, and more." },
+  { question: "How can I contact you?", answer: "Email: jadhavbhakti1512@gmail.com or use the contact form on this site." },
   { question: "Do you do freelance work?", answer: "Yes — check the Hire Me section for availability and rates." },
-  { question: "Which projects have you built?", answer: "I have built several e-commerce and full-stack projects — see the Projects section for details." },
+  { question: "Which projects have you built?", answer: "Several e-commerce and full-stack projects — see the Projects section." },
 ]
 
 export default function FAQChatbot() {
@@ -30,7 +30,7 @@ export default function FAQChatbot() {
 
   useEffect(() => {
     if (open && messages.length === 0) {
-      addBotMessage("👋 Hi! Ask me anything about this portfolio — try 'technologies' or 'contact'.")
+      addBotMessage("👋 Hi! Ask me anything about this portfolio.")
     }
   }, [open])
 
@@ -39,13 +39,11 @@ export default function FAQChatbot() {
   }, [messages])
 
   function addUserMessage(text: string) {
-    const m: Message = { id: String(Date.now()) + "-u", from: "user", text }
-    setMessages((prev) => [...prev, m])
+    setMessages(prev => [...prev, { id: String(Date.now()) + "-u", from: "user", text }])
   }
 
   function addBotMessage(text: string) {
-    const m: Message = { id: String(Date.now()) + "-b", from: "bot", text }
-    setMessages((prev) => [...prev, m])
+    setMessages(prev => [...prev, { id: String(Date.now()) + "-b", from: "bot", text }])
   }
 
   function handleSend(e?: React.FormEvent) {
@@ -69,7 +67,7 @@ export default function FAQChatbot() {
       {!open && (
         <button
           onClick={() => setOpen(true)}
-          className="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition"
+          className="fixed bottom-6 right-6 bg-teal-500 text-white p-4 rounded-full shadow-lg hover:bg-teal-600 transition dark:bg-teal-600 dark:hover:bg-teal-700"
         >
           <BsChatDots size={24} />
         </button>
@@ -77,25 +75,26 @@ export default function FAQChatbot() {
 
       {/* Chat Window */}
       {open && (
-        <div className="fixed bottom-6 right-6 w-80 sm:w-96 bg-white dark:bg-stone-900 rounded-xl shadow-2xl flex flex-col overflow-hidden border border-gray-200 dark:border-stone-700">
+        <div className="fixed bottom-6 right-6 w-80 sm:w-96 rounded-2xl flex flex-col overflow-hidden border shadow-2xl
+                        bg-white border-teal-200 dark:bg-stone-900 dark:border-stone-700">
           {/* Header */}
-          <div className="flex justify-between items-center bg-blue-600 text-white px-4 py-2">
-            <span className="font-semibold">Portfolio Chatbot</span>
-            <button onClick={() => setOpen(false)} className="hover:text-gray-200">
+          <div className="flex justify-between items-center px-4 py-2 font-bold text-lg text-white bg-teal-500 rounded-t-2xl dark:bg-teal-600">
+            <span>Portfolio Chatbot</span>
+            <button onClick={() => setOpen(false)} className="hover:text-teal-100">
               <AiOutlineClose size={20} />
             </button>
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-3 space-y-3 bg-gray-50 dark:bg-stone-800">
+          <div className="flex-1 overflow-y-auto p-3 space-y-3 bg-teal-50 dark:bg-stone-800">
             {messages.map((m) => (
               <div key={m.id} className={`flex ${m.from === "user" ? "justify-end" : "justify-start"}`}>
                 <div
-                  className={`px-3 py-2 rounded-lg text-sm max-w-[75%] ${
-                    m.from === "user"
-                      ? "bg-blue-600 text-white rounded-br-none"
-                      : "bg-gray-200 dark:bg-stone-700 text-black dark:text-white rounded-bl-none"
-                  }`}
+                  className={`px-3 py-2 rounded-2xl text-sm max-w-[75%] 
+                              ${m.from === "user"
+                                ? "bg-teal-500 text-white rounded-br-none shadow-md dark:bg-teal-600"
+                                : "bg-white text-teal-600 rounded-bl-none shadow-sm dark:bg-stone-700 dark:text-white"
+                              }`}
                 >
                   {m.text}
                 </div>
@@ -105,17 +104,17 @@ export default function FAQChatbot() {
           </div>
 
           {/* Input */}
-          <form onSubmit={handleSend} className="flex items-center border-t border-gray-200 dark:border-stone-700 p-2">
+          <form onSubmit={handleSend} className="flex items-center p-2 border-t border-teal-200 dark:border-stone-700">
             <input
               ref={inputRef}
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Type a question..."
-              className="flex-1 px-3 py-2 text-sm rounded-lg border border-gray-300 dark:border-stone-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-stone-800 dark:text-white"
+              className="flex-1 px-3 py-2 text-sm rounded-2xl border border-teal-300 focus:outline-none focus:ring-2 focus:ring-teal-500 dark:border-stone-600 dark:bg-stone-800 dark:text-white"
             />
             <button
               type="submit"
-              className="ml-2 p-2 bg-blue-600 rounded-full text-white hover:bg-blue-700 transition"
+              className="ml-2 p-2 bg-teal-500 rounded-full text-white hover:bg-teal-600 transition dark:bg-teal-600 dark:hover:bg-teal-700"
             >
               <IoMdSend size={18} />
             </button>
