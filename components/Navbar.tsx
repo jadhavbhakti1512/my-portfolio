@@ -8,7 +8,8 @@ import { IoMdMenu, IoMdClose } from "react-icons/io";
 
 interface NavItem {
   label: string;
-  page: string;
+  page?: string; // page for scroll sections
+  href?: string; // href for external links like resume
 }
 
 const NAV_ITEMS: Array<NavItem> = [
@@ -16,6 +17,7 @@ const NAV_ITEMS: Array<NavItem> = [
   { label: "About Me", page: "about" },
   { label: "Projects", page: "projects" },
   { label: "Certifications", page: "certifications" },
+  { label: "Resume", href: "/resume.pdf" }, // <-- Add your resume here
 ];
 
 export default function Navbar() {
@@ -57,21 +59,36 @@ export default function Navbar() {
           }`}
         >
           <div className="flex flex-col md:flex-row md:space-x-6 space-y-3 md:space-y-0 items-end md:items-center">
-            {NAV_ITEMS.map((item, idx) => (
-              <Link
-                key={idx}
-                to={item.page}
-                className={`text-sm ${baseTextColorClass} ${accentColorClass} font-medium hover:underline cursor-pointer`}
-                activeClass="active"
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={500}
-                onClick={() => setNavbar(!navbar)}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV_ITEMS.map((item, idx) =>
+              item.page ? (
+                // Scroll link for sections
+                <Link
+                  key={idx}
+                  to={item.page}
+                  className={`text-sm ${baseTextColorClass} ${accentColorClass} font-medium hover:underline cursor-pointer`}
+                  activeClass="active"
+                  spy={true}
+                  smooth={true}
+                  offset={-100}
+                  duration={500}
+                  onClick={() => setNavbar(false)}
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                // External link (resume)
+                <a
+                  key={idx}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`text-sm ${baseTextColorClass} ${accentColorClass} font-medium hover:underline cursor-pointer`}
+                  onClick={() => setNavbar(false)}
+                >
+                  {item.label}
+                </a>
+              )
+            )}
 
             {/* Theme toggle */}
             {mounted &&
