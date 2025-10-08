@@ -88,18 +88,7 @@ const Contact = () => {
           )}
         </form>
 
-        {/* Social Links */}
-        <div className="flex justify-center mt-12 space-x-6 text-2xl text-gray-700 dark:text-gray-300">
-          <a href="https://github.com/jadhavbhakti1512" target="_blank" rel="noopener noreferrer">
-            <AiOutlineGithub className="hover:text-teal-600 transition" />
-          </a>
-          <a href="https://linkedin.com/in/bhaktijadhav" target="_blank" rel="noopener noreferrer">
-            <AiOutlineLinkedin className="hover:text-teal-600 transition" />
-          </a>
-          <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer">
-            <AiOutlineInstagram className="hover:text-teal-600 transition" />
-          </a>
-        </div>
+        
       </div>
     </section>
   );
