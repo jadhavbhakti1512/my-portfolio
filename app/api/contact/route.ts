@@ -1,4 +1,4 @@
-export const runtime = "nodejs"; // important for nodemailer
+export const runtime = "nodejs";
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
@@ -12,15 +12,15 @@ export async function POST(req: Request) {
       secure: true,
       auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        pass: process.env.EMAIL_PASS, // Use App Password
       },
     });
 
-    // Optional verification
     await transporter.verify();
 
     const mailOptions = {
-      from: email,
+      from: process.env.EMAIL_USER,
+      replyTo: email,
       to: process.env.EMAIL_TO,
       subject: `New message from ${name} via Portfolio`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
