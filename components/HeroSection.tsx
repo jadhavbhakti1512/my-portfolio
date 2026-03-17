@@ -20,7 +20,7 @@ const HeroSection = () => {
         </div>
         <div className="md:mt-2 md:w-3/5">
         <h1 className="text-4xl font-bold mt-6 md:mt-0 md:text-7xl">
-            Hi there! 
+            Hey, there! 
             <motion.span 
                 animate={{ rotate: [0, 20, 0, -20, 0] }} 
                 transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
